@@ -4,5 +4,4 @@
 few base elements), hardcoded strings in presentation/model layer, no navigation system, no error handling, offline support – well, you got the idea.
 But I've ticked to requirenments checkboxes.
 3. The structure of the project is pretty simple: it is separated with folders containing different parts of the app structure (like di, network, model),
-and those containing features. 
-Thanks for your time!
+and those containing features.
