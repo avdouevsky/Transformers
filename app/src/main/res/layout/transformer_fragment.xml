@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:id="@+id/container">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolBar2"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/ripple_grey_circle"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/titleTextView"
+                style="@style/Text.ScreenTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transformer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/backButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/createButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:text="create"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:textColorHint="@color/grey_100"
+
+                app:layout_constraintTop_toBottomOf="@id/toolBar">
+
+                <EditText
+                    android:id="@+id/nameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/grey_0"
+                    android:textColor="@color/grey_100" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioGroup
+                android:id="@+id/teamRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/nameTextInput">
+
+                <RadioButton
+                    android:id="@+id/autobot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Autobot"
+                    android:textColor="@color/grey_100" />
+
+                <RadioButton
+                    android:id="@+id/deception"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deception"
+                    android:textColor="@color/grey_100" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/strengthTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:text="Strength:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/teamRadioGroup" />
+
+            <TextView
+                android:id="@+id/strengthValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/strengthTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/strengthTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/strengthTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/strengthBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/strengthTitleTextView" />
+
+            <TextView
+                android:id="@+id/intelligenceTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="Intelligence:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/strengthBar" />
+
+            <TextView
+                android:id="@+id/intelligenceValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/intelligenceTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/intelligenceTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/intelligenceTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/intelligenceBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/intelligenceTitleTextView" />
+
+            <TextView
+                android:id="@+id/speedTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="Speed:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intelligenceBar" />
+
+            <TextView
+                android:id="@+id/speedValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/speedTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/speedTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/speedTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/speedBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/speedTitleTextView" />
+
+            <TextView
+                android:id="@+id/enduranceTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="Endurance:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/speedBar" />
+
+            <TextView
+                android:id="@+id/enduranceValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/enduranceTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/enduranceTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/enduranceTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/enduranceBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/enduranceTitleTextView" />
+
+            <TextView
+                android:id="@+id/rankTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="Rank:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/enduranceBar" />
+
+            <TextView
+                android:id="@+id/rankValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/rankTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/rankTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/rankTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/rankBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/rankTitleTextView" />
+
+            <TextView
+                android:id="@+id/courageTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="Courage:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rankBar" />
+
+            <TextView
+                android:id="@+id/courageValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/courageTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/courageTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/courageTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/courageBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/courageTitleTextView" />
+
+            <TextView
+                android:id="@+id/firePowerTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="Fire power:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/courageBar" />
+
+            <TextView
+                android:id="@+id/firePowerValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/firePowerTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/firePowerTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/firePowerTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/firePowerBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/firePowerTitleTextView" />
+
+            <TextView
+                android:id="@+id/skillTitleTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_regular"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="Skill:"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firePowerBar" />
+
+            <TextView
+                android:id="@+id/skillValueTextView"
+                style="@style/Text.Regular1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_small"
+                android:text="5"
+                app:layout_constraintBottom_toBottomOf="@+id/skillTitleTextView"
+                app:layout_constraintLeft_toRightOf="@+id/skillTitleTextView"
+                app:layout_constraintTop_toTopOf="@+id/skillTitleTextView" />
+
+
+            <SeekBar
+                android:id="@+id/skillBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="9"
+                android:progress="0"
+                app:layout_constraintTop_toBottomOf="@+id/skillTitleTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>
